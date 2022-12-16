@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import "../resources/layout.css";
 import {
+  MdRestaurantMenu,
+  MdHistory,
+  MdEditNote
+
+    } from "react-icons/md";
+    import {TbUsers} from "react-icons/tb";
+    import {HiOutlineLogout} from "react-icons/hi";
+
+import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
+  DashboardOutlined
+  
 } from '@ant-design/icons';
+import {Link} from "react-router-dom";
+//import vaultlogo from "../components/vaultlogo.png";
+import vaullogo from "../components/output-onlinepngtools.png"
 import { Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
 const DefLayout = () => {
@@ -17,27 +28,46 @@ const DefLayout = () => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
+        <div className="logo"> <img src={vaullogo} alt="" width="60px"  /> </div>  
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={window.location.pathname}
           items={[
+            
+          
             {
-              key: '1',
-              icon: <UserOutlined />,
-              label: 'nav 1',
+              key: "/home",
+              icon: <Link to="/home"> <DashboardOutlined /> </Link>  ,
+              label: 'Dashboard',
+            } ,
+            
+            {
+              key: "/menu",
+              icon: <Link to="/menu"> <MdRestaurantMenu /> </Link>,
+              label: 'Menu',
             },
             {
-              key: '2',
-              icon: <VideoCameraOutlined />,
-              label: 'nav 2',
+              key: "/users",
+              icon: <Link to="/Users"> <TbUsers /> </Link> ,
+              label: 'Users/Casheirs',
             },
             {
-              key: '3',
-              icon: <UploadOutlined />,
-              label: 'nav 3',
+              key:"/orders",
+              icon: <Link to="/orders"> <MdHistory /> </Link>,
+              label:'Orders',
+
             },
+            {
+              key:"/makeorder",
+              icon: <Link to="makeorder" > <MdEditNote  /> </Link>,
+              label:'Make An Order'
+            },
+            {
+              key:"/logout",
+              icon: <Link to="logout"> <HiOutlineLogout /> </Link>,
+              label:"logout"
+            }
           ]}
         />
       </Sider>
@@ -47,7 +77,7 @@ const DefLayout = () => {
             padding: 10,
             background: colorBgContainer,
           }}
-        >
+          > 
           {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
             className: 'trigger',
             onClick: () => setCollapsed(!collapsed),
