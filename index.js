@@ -1,12 +1,11 @@
 const express = require("express");
 const dbConnect = require("./dbConnection");
+const itemsrouter = require("./routes/itemsRoute");
 const app = express();
-
+app.use(express.json());
 require("dotenv").config();
 
-app.get("/" , (req , res)=>{
-    res.send("hello");
-})
+app.use("/api/items" , itemsrouter);
 
 
 app.listen(process.env.PORT , ()=>{
