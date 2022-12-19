@@ -20,15 +20,16 @@ import {Link} from "react-router-dom";
 import vaullogo from "../components/output-onlinepngtools.png"
 import { Layout, Menu, theme } from 'antd';
 const { Header, Sider, Content } = Layout;
-const DefLayout = () => {
+function DefaultLayout({children}) {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo"> <img src={vaullogo} alt="" width="60px"  /> </div>  
+        <div className="logo"> <img src={vaullogo} alt="" width="60px" /> </div>  
         <Menu
           theme="dark"
           mode="inline"
@@ -70,7 +71,9 @@ const DefLayout = () => {
             }
           ]}
         />
+     
       </Sider>
+      
       <Layout className="site-layout">
         <Header
           style={{
@@ -85,16 +88,16 @@ const DefLayout = () => {
         </Header>
         <Content
           style={{
-            margin: '10px',
+            margin: ' 10px ',
             padding: 24,
             minHeight: 280,
             background: colorBgContainer,
           }}
         >
-          <h1>hello </h1>
+          {children}
         </Content>
       </Layout>
     </Layout>
   );
 };
-export default DefLayout;
+export default DefaultLayout;

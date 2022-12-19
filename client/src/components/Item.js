@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Item({item}) {
+function Item({item}) {
   return (
     <div className='item'>
         <h1>{item.name}</h1>
@@ -9,3 +9,5 @@ export default function Item({item}) {
     </div>
   )
 }
+
+export default Item;
