@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import DefaultLayout from "../components/DefaultLayout";
 import axios from "axios";
-// import { Col,  Row } from 'antd';
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Col,  Row } from 'antd';
 import Item from "../components/Item";
-
+import "../resources/item.css";
 function Homepage() {
   const [itemsData, setItemData] = useState([]);
   const getAllItems = () => {
@@ -48,18 +45,18 @@ function Homepage() {
    
    <DefaultLayout>
    
-      <Container fluid>
-        <Row>
+      
+        <Row gutter={30}>
           {itemsData.map((item , i) => {
             return (
-              <Col key={i}>
+              <Col key={i}  xs={24} lg={6} md={12} sm={6}>
                 <Item item={item} />
-                {console.log(item.name)}
+                
               </Col>
             );
           })}
         </Row>
-      </Container>
+      
       
       </DefaultLayout>
     

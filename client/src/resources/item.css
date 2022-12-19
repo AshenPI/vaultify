@@ -1,0 +1,26 @@
+.item{
+    box-shadow: 0 0 3px rgb(168, 168, 168);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.item .name{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+.item .price{
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.item button{
+    background-color: inherit;
+    color: black;
+    margin-top: 20px;
+
+}
+.item button :hover{
+   
+}
