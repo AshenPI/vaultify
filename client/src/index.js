@@ -5,7 +5,6 @@ import App from "./App";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import { combineReducers } from "redux";
-import {configureStore} from '@reduxjs/toolkit';
 import { rootReducer } from "./redux/rootReducer";
 
 const finalReducer = combineReducers({

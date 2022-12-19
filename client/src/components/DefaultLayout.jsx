@@ -3,6 +3,7 @@ import "../resources/layout.css";
 import { MdRestaurantMenu, MdHistory, MdEditNote } from "react-icons/md";
 import { TbUsers } from "react-icons/tb";
 import { HiOutlineLogout } from "react-icons/hi";
+import {AiOutlineShoppingCart} from "react-icons/ai";
 import {useSelector} from "react-redux";
 
 import {
@@ -113,8 +114,9 @@ function DefaultLayout({ children }) {
               onClick: () => setCollapsed(!collapsed),
             }
           )}
-          <div className="cart-count">
-            <h4>{cartItems.length}</h4>
+          <div className=" cart-count d-flex align-items-center">
+           <b> <p className="mt-3">{cartItems.length}</p></b>
+            <AiOutlineShoppingCart size="20px" />
           </div>
         </Header>
         <Content
