@@ -11,10 +11,11 @@ import {
   MenuUnfoldOutlined,
   DashboardOutlined,
 } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //import vaultlogo from "../components/vaultlogo.png";
 import vaullogo from "../components/output-onlinepngtools.png";
 import { Layout, Menu, theme } from "antd";
+import { useEffect } from "react";
 const { Header, Sider, Content } = Layout;
 function DefaultLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
@@ -22,7 +23,10 @@ function DefaultLayout({ children }) {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-
+const navigate = useNavigate();
+  useEffect(()=>{
+    localStorage.setItem('cartItems' , JSON.stringify(cartItems))
+  } , [cartItems])
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -114,9 +118,10 @@ function DefaultLayout({ children }) {
               onClick: () => setCollapsed(!collapsed),
             }
           )}
-          <div className=" cart-count d-flex align-items-center">
+          <div className=" cart-count d-flex align-items-center" onClick={()=> navigate("/cart")}>
            <b> <p className="mt-3">{cartItems.length}</p></b>
-            <AiOutlineShoppingCart size="20px" />
+           
+           <AiOutlineShoppingCart size="20px" />
           </div>
         </Header>
         <Content

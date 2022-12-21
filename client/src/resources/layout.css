@@ -71,3 +71,11 @@
 
 }
 
+
+.cart-count:hover{
+    color: rgb(51, 51, 51);
+}
+.cart-count{
+    color: black;
+    cursor: pointer;
+}
