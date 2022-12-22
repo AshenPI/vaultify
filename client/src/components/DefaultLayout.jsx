@@ -10,16 +10,17 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   DashboardOutlined,
+
 } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
-//import vaultlogo from "../components/vaultlogo.png";
+
 import vaullogo from "../components/output-onlinepngtools.png";
 import { Layout, Menu, theme } from "antd";
 import { useEffect } from "react";
 const { Header, Sider, Content } = Layout;
 function DefaultLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
-  const {cartItems} = useSelector(state => state.rootReducer)
+  const {cartItems , loading} = useSelector(state => state.rootReducer)
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -29,6 +30,13 @@ const navigate = useNavigate();
   } , [cartItems])
   return (
     <Layout>
+    {loading && (
+     <div className="spinner">
+  <div className="spinner-border" role="status">
+    </div>
+  </div>
+
+    )}
       <Sider trigger={null} collapsible collapsed={collapsed}>
         <div className="logo">
           {" "}
@@ -53,12 +61,12 @@ const navigate = useNavigate();
             {
               key: "/menu",
               icon: (
-                <Link to="/menu">
+                <Link to="/items">
                   {" "}
                   <MdRestaurantMenu />{" "}
                 </Link>
               ),
-              label: "Menu",
+              label: "Items",
             },
             {
               key: "/users",

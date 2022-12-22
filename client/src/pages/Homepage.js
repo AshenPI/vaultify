@@ -4,25 +4,27 @@ import axios from "axios";
 import { Col,  Row } from 'antd';
 import Item from "../components/Item";
 import "../resources/item.css";
+import { useDispatch } from "react-redux";
 function Homepage() {
   const [itemsData, setItemData] = useState([]);
+  const dispatch = useDispatch()
+  dispatch({type: "hideLoading"})
+
+  
   const getAllItems = () => {
     axios
       .get("/api/items/getall")
       .then((res) => {
-        
+        dispatch({type: "showLoading"})
+   
         setItemData(res.data);
       })
       .catch((error) => {
+        dispatch({type: "showLoading"})
         console.log(error);
       });
   };
-  // async function getAllItems(){
-  //   const res = await fetch("/api/items/getall")
-  //   const data = await res.json();
-  //   setitemData(data);
 
-  // }
 
   useEffect(() => {
     getAllItems();
@@ -30,18 +32,6 @@ function Homepage() {
 
   return (
     <>
-    {/* <Container fluid>
-        <Row>
-          {itemsData.map((item) => {
-            return (
-              <Col>
-                <Item item={item} />
-                {console.log(item.name)}
-              </Col>
-            );
-          })}
-        </Row>
-      </Container> */}
    
    <DefaultLayout>
    

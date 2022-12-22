@@ -12,4 +12,14 @@ router.get("/getall" , async (req , res)=>{
     }
 })
 
+router.post("/add-item" , async (req , res)=>{
+
+try {
+    const newitem = new itemModel(req.body);
+    await newitem.save();
+    res.send("Item added succesfully")
+} catch (error) {
+    res.send(error);
+}
+})
 module.exports = router;

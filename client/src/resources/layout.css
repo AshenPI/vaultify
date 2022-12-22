@@ -67,7 +67,7 @@
 
 .ant-menu-item-selected{
 
-    background-color: rgb(5, 1, 27) !important;
+    background-color: rgb(5, 1, 27) !important ;
 
 }
 
@@ -78,4 +78,13 @@
 .cart-count{
     color: black;
     cursor: pointer;
+}
+
+.spinner{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
 }

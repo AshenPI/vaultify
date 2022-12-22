@@ -46,7 +46,7 @@ export default function CartPage() {
         {
             "title": "Actions",
             dataIndex: "_id",
-            render:(id , record)=> <DeleteOutlined className='mx-3'  />
+            render:(id , record)=> <DeleteOutlined className='mx-3' onClick={()=> dispatch({type: 'deleteFromCart' , payload : record})}  />
         }
     ]
   return (
