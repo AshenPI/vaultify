@@ -22,4 +22,24 @@ try {
     res.send(error);
 }
 })
+
+router.post("/edit-item" , async (req , res)=>{
+
+    try {
+        await itemModel.findOneAndUpdate({_id : req.body.itemId} , req.body)
+        res.send("Item updated succesfully")
+    } catch (error) {
+        res.send(error);
+    }
+    })
+
+    router.post("/delete-item" , async (req , res)=>{
+
+        try {
+            await itemModel.findOneAndDelete({_id : req.body.itemId})
+            res.send("Item delted succesfully")
+        } catch (error) {
+            res.send(error);
+        }
+        })
 module.exports = router;
