@@ -19,12 +19,13 @@ import { Layout, Menu, theme } from "antd";
 import { useEffect } from "react";
 const { Header, Sider, Content } = Layout;
 function DefaultLayout({ children }) {
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   const {cartItems , loading} = useSelector(state => state.rootReducer)
   const {
     token: { colorBgContainer },
   } = theme.useToken();
-const navigate = useNavigate();
+
   useEffect(()=>{
     localStorage.setItem('cartItems' , JSON.stringify(cartItems))
   } , [cartItems])
@@ -88,26 +89,43 @@ const navigate = useNavigate();
               ),
               label: "Orders",
             },
-            {
-              key: "/makeorder",
-              icon: (
-                <Link to="makeorder">
-                  {" "}
-                  <MdEditNote />{" "}
-                </Link>
-              ),
-              label: "Make An Order",
-            },
+            // {
+            //   key: "/makeorder",
+            //   icon: (
+            //     <Link to="makeorder">
+            //       {" "}
+            //       <MdEditNote />{" "}
+            //     </Link>
+            //   ),
+            //   label: "Make An Order",
+            // },
+        
+            
+
             {
               key: "/logout",
-              icon: (
-                <Link to="logout">
+              icon : (
+                <Link to="/login" onClick={()=>{
+                    localStorage.removeItem("pos-user")
+                  
+                  }} >
                   {" "}
-                  <HiOutlineLogout />{" "}
+                  <HiOutlineLogout   />{" "}
                 </Link>
               ),
               label: "logout",
-            },
+            }
+            // {
+            //   key: "/logout",
+            //   icon : (
+            //     <Link to="/" 
+            //      >
+            //       {" "}
+            //       <HiOutlineLogout   />{" "}
+            //     </Link>
+            //   ),
+            //   label: "logout",
+            // }
           ]}
         />
       </Sider>
