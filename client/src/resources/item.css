@@ -45,3 +45,10 @@ margin-right: 25px;
 .selected-category{
      border: 3px solid rgb(19, 19, 65);
 }
+
+
+.subTotal h3{
+    color:black ;
+    font-size: 35px;
+    padding: 15px; 
+}

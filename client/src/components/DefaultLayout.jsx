@@ -60,7 +60,7 @@ function DefaultLayout({ children }) {
             },
 
             {
-              key: "/menu",
+              key: "/items",
               icon: (
                 <Link to="/items">
                   {" "}
@@ -70,24 +70,24 @@ function DefaultLayout({ children }) {
               label: "Items",
             },
             {
-              key: "/users",
+              key: "/customers",
               icon: (
-                <Link to="/Users">
+                <Link to="/customers">
                   {" "}
                   <TbUsers />{" "}
                 </Link>
               ),
-              label: "Users/Casheirs",
+              label: "Customers",
             },
             {
-              key: "/orders",
+              key: "/bills",
               icon: (
-                <Link to="/orders">
+                <Link to="/bills">
                   {" "}
                   <MdHistory />{" "}
                 </Link>
               ),
-              label: "Orders",
+              label: "Bills",
             },
             // {
             //   key: "/makeorder",
