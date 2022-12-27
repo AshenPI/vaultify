@@ -9,12 +9,14 @@ import {
 } from "@ant-design/icons";
 import { useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function CartPage() {
   const { cartItems } = useSelector((state) => state.rootReducer);
   const [billCharge, setBillCharge] = useState(false);
   const [subTotal, setSubTotal] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   function increaseQuantity(record) {
     dispatch({
       type: "updateCart",
@@ -105,6 +107,8 @@ export default function CartPage() {
       .post("/api/bills/charge-bill", reqObject)
       .then(() => {
         message.success("Bill charged successfully");
+        navigate("/bills")
+        
       })
       .catch(() => {
         message.success("Something went wrong");
@@ -149,10 +153,10 @@ export default function CartPage() {
 
           <div className="charge-bill-amount ">
             <h5>
-              SubTotal: <b>{subTotal}</b>
+              SubTotal: <b>{Number(subTotal)}</b>
             </h5>
             <h5>
-              VAT: <b>{subTotal * 0.15} </b>
+              VAT: <b>{(Number(subTotal) * Number(0.15)).toFixed(2)} </b>
             </h5>
 
             <hr />
