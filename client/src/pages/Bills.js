@@ -134,7 +134,7 @@ export default function Bills() {
           <div className="bill-model" ref={componentRef}>
             <div className="d-flex justify-content-between bill-header pb-2">
               <div>
-              <h1><b>SR MARKET</b></h1>
+              <h1><b>Vaultify MARKET</b></h1>
               </div>
               <div>
                 <p>Vautify </p>
