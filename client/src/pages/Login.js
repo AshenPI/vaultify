@@ -18,9 +18,10 @@ export default function Login() {
     message.success("logged successfully")
     localStorage.setItem("pos-user" , JSON.stringify(res.data))
     navigate("/home")
-  }).catch(()=>{
+  }).catch((error)=>{
     dispatch({type:"hideLoading"});
      message.error("something went wrong");
+     console.log(error.data)
   })
 }
 

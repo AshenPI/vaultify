@@ -24,7 +24,7 @@ export default function Customers() {
       })
       .catch((error) => {
         dispatch({ type: "showLoading" });
-        console.log(error);
+        console.log(error.data);
       });
   };
 

@@ -24,7 +24,7 @@ export default function Items() {
       })
       .catch((error) => {
         dispatch({ type: "showLoading" });
-        console.log(error);
+        console.log(error.data);
       });
   };
 
@@ -39,7 +39,7 @@ export default function Items() {
       .catch((error) => {
         dispatch({ type: "showLoading" });
         message.error("Something went wrong");
-        console.log(error);
+        console.log(error.data);
       });
   };
 
@@ -104,7 +104,7 @@ export default function Items() {
         .catch((error) => {
           dispatch({ type: "showLoading" });
           message.error("something went wrong");
-          console.log(error);
+          console.log(error.data);
         });
     } else {
       axios
@@ -119,7 +119,7 @@ export default function Items() {
         .catch((error) => {
           dispatch({ type: "showLoading" });
           message.error("something went wrong");
-          console.log(error);
+          console.log(error.data);
         });
     }
     // axios

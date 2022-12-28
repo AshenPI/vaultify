@@ -39,7 +39,7 @@ function Homepage() {
       })
       .catch((error) => {
         dispatch({type: "showLoading"})
-        console.log(error);
+        console.log(error.data);
       });
   };
 

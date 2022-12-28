@@ -15,9 +15,10 @@ export default function Register() {
         dispatch({type: "hideLoading"});
         message.success("Registerd successfully, please wait for verification")
     
-    }).catch(()=>{
+    }).catch((error)=>{
         dispatch({type: "hideLoading"});
         message.error("Something went wrong");
+        console.log(error.data);
     })
 }
 // useEffect(() => {

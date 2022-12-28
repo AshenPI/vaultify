@@ -110,8 +110,9 @@ export default function CartPage() {
         navigate("/bills")
         
       })
-      .catch(() => {
+      .catch((error) => {
         message.success("Something went wrong");
+        console.log(error.data)
       });
   }
   return (
