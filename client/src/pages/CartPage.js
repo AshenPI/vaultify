@@ -162,7 +162,7 @@ export default function CartPage() {
             <hr />
             <h2>
               TOTAL :{" "}
-              <b>{Number(subTotal) + Number(subTotal) * Number(0.15)} ريال</b>
+              <b>{(Number(subTotal) + Number(subTotal) * Number(0.15)).toFixed(2)} ريال</b>
             </h2>
           </div>
           <div className="d-flex justify-content-end">
