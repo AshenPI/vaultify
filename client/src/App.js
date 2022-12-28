@@ -20,6 +20,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Login />} />
+        <Route path="*" element={" 404 no page with this path"} />
       </Routes>
     </BrowserRouter>
     </div>
