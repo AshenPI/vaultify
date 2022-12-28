@@ -2,10 +2,10 @@ import React from "react";
 import DefaultLayout from "../components/DefaultLayout";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { DeleteOutlined, EditOutlined  , EyeOutlined } from "@ant-design/icons";
+import { EyeOutlined } from "@ant-design/icons";
 import {useReactToPrint} from "react-to-print";
 import axios from "axios";
-import { Button, Form, Input, Modal, Select, Table, message } from "antd";
+import { Button, Modal,  Table} from "antd";
 import { useRef } from "react";
 
 export default function Bills() {

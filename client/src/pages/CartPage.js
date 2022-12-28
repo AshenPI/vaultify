@@ -98,8 +98,8 @@ export default function CartPage() {
       ...values,
       subTotal,
       cartItems,
-      VAT: Number(subTotal) * Number(0.15),
-      totalAmount: Number(subTotal) + Number(subTotal) * Number(0.15),
+      VAT: (Number(subTotal) * Number(0.15)).toFixed(2),
+      totalAmount: (Number(subTotal) + Number(subTotal) * Number(0.15)).toFixed(2),
       userId: JSON.parse(localStorage.getItem("pos-user"))._id,
     };
 
@@ -153,7 +153,7 @@ export default function CartPage() {
 
           <div className="charge-bill-amount ">
             <h5>
-              SubTotal: <b>{Number(subTotal)}</b>
+              SubTotal: <b>{Number(subTotal).toFixed(2)}</b>
             </h5>
             <h5>
               VAT: <b>{(Number(subTotal) * Number(0.15)).toFixed(2)} </b>
